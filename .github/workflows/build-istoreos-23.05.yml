@@ -36,7 +36,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  GITHUB_TOKEN: ${{ secrets.TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
   build:
@@ -258,3 +258,4 @@ jobs:
       with:
         keep_latest: 6
         delete_tags: true
+        token: ${{ env.GITHUB_TOKEN }}
