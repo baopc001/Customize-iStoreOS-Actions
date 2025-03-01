@@ -189,8 +189,8 @@ elif [ "$1" = "x86-alpha" ]; then
     $GITHUB_WORKSPACE/scripts/preset-clash-core.sh amd64    
 fi
 #homeproxy
-# mkdir luci-app-homeproxy
-# cp -rf ../../kiddin9/luci-app-homeproxy/* luci-app-homeproxy
+mkdir luci-app-homeproxy
+cp -rf ../../kiddin9/luci-app-homeproxy/* luci-app-homeproxy
 
 # 去广告
 #ADGuardHome（kiddin9）
@@ -200,12 +200,12 @@ fi
 # sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为root）/' luci-app-adguardhome/po/zh_Hans/adguardhome.po
 #sed -i 's/+PACKAGE_$(PKG_NAME)_INCLUDE_binary:adguardhome//' luci-app-adguardhome/Makefile
 #ADGuardHome（kenzok8）
-# svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
-# svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
-# svn export https://github.com/Siriling/打开WRT-MyConfig/trunk/configs/lede/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
-# cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
-# sed -i 's/默认账号和密码均为：admin/默认用户名和密码均为root/' luci-app-adguardhome/po/zh-cn/AdGuardHome.po
-# sed -i 's/网页管理账号和密码:admin ,端口:/端口/' luci-app-adguardhome/po/zh-cn/AdGuardHome.po
+svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
+svn export https://github.com/Siriling/打开WRT-MyConfig/trunk/configs/lede/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
+cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
+sed -i 's/默认账号和密码均为：admin/默认用户名和密码均为root/' luci-app-adguardhome/po/zh-cn/AdGuardHome.po
+sed -i 's/网页管理账号和密码:admin ,端口:/端口/' luci-app-adguardhome/po/zh-cn/AdGuardHome.po
 #dnsfilter
 # svn export https://github.com/kenzok8/small-package/trunk/luci-app-dnsfilter
 #ikoolproxy
@@ -240,10 +240,10 @@ fi
 #Socat（iStoreOS已有）
 #svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-socat
 #Unblockneteasemusic
-mkdir UnblockNeteaseMusic
-mkdir luci-app-unblockneteasemusic
-cp -rf ../../kiddin9/UnblockNeteaseMusic/* UnblockNeteaseMusic
-cp -rf ../../kiddin9/luci-app-unblockneteasemusic/* luci-app-unblockneteasemusic
+# mkdir UnblockNeteaseMusic
+# mkdir luci-app-unblockneteasemusic
+# cp -rf ../../kiddin9/UnblockNeteaseMusic/* UnblockNeteaseMusic
+# cp -rf ../../kiddin9/luci-app-unblockneteasemusic/* luci-app-unblockneteasemusic
 #OpenAppFilter（conf已有）
 # svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
@@ -363,10 +363,10 @@ CONFIG_PACKAGE_luci-app-ssr-plus=y
 
 #Openclash
 CONFIG_PACKAGE_luci-app-openclash=y
-# CONFIG_PACKAGE_luci-app-homeproxy=y
+CONFIG_PACKAGE_luci-app-homeproxy=y
 
 # 去广告应用
-# CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
 # CONFIG_PACKAGE_luci-app-dnsfilter=y
 # CONFIG_PACKAGE_luci-app-ikoolproxy=y
 
@@ -425,20 +425,20 @@ CONFIG_PACKAGE_luci-app-openclash=y
 " >> .config
 
 #补充网卡
-echo "
-CONFIG_PACKAGE_kmod-mt7922-firmware=y
-CONFIG_PACKAGE_kmod-ath=y
-CONFIG_PACKAGE_kmod-ath10k=y
-CONFIG_PACKAGE_ath10k-board-qca9888=y
-CONFIG_PACKAGE_ath10k-board-qca988x=y
-CONFIG_PACKAGE_ath10k-board-qca9984=y
-CONFIG_PACKAGE_ath10k-firmware-qca9888=y
-CONFIG_PACKAGE_ath10k-firmware-qca988x=y
-CONFIG_PACKAGE_ath10k-firmware-qca9984=y
-" >> .config
+# echo "
+# CONFIG_PACKAGE_kmod-mt7922-firmware=y
+# CONFIG_PACKAGE_kmod-ath=y
+# CONFIG_PACKAGE_kmod-ath10k=y
+# CONFIG_PACKAGE_ath10k-board-qca9888=y
+# CONFIG_PACKAGE_ath10k-board-qca988x=y
+# CONFIG_PACKAGE_ath10k-board-qca9984=y
+# CONFIG_PACKAGE_ath10k-firmware-qca9888=y
+# CONFIG_PACKAGE_ath10k-firmware-qca988x=y
+# CONFIG_PACKAGE_ath10k-firmware-qca9984=y
+# " >> .config
 
 #5G相关
-echo "
+# echo "
 # 5G模组信号插件
 # CONFIG_PACKAGE_ext-rooter-basic=y
 
@@ -473,7 +473,7 @@ echo "
 # 脚本拨号工具依赖
 # CONFIG_PACKAGE_procps-ng=y
 # CONFIG_PACKAGE_procps-ng-ps=y
-" >> .config
+# " >> .config
 
 # 额外组件
 echo "
